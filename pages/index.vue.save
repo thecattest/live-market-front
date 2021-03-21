@@ -1,0 +1,191 @@
+<!-- eslint-disable prettier/prettier, max-len -->
+<template>
+  <div class="main-page">
+    <div class="container">
+      <div class="main-page__wrapper">
+        <h1 class="main-page__title">
+          Live Commerce
+        </h1>
+        <button
+          v-if="isVisibleButton"
+          class="main-page__create-broadcast"
+          @click="createBroadcast"
+        >
+          Create Broadcast
+        </button>
+        <transition
+          name="scale"
+          mode="out-in"
+        >
+          <div
+            id="twitch-embed"
+            class="main-page__stream"
+            :class="{'active': isVisibleButton}"
+          ></div>
+        </transition>
+        <div class="main-page__goods goods">
+          <h2 class="goods__title">
+            Акционные товары
+          </h2>
+          <ul class="goods__list">
+            <li class="goods__item">
+              <img
+                src="../assets/images/goods/6029346159.webp"
+                alt="land-rover"
+              />
+            </li>
+            <li class="goods__item">
+              <img
+                src="../assets/images/goods/6029346159.webp"
+                alt="land-rover"
+              />
+            </li>
+            <li class="goods__item">
+              <img
+                src="../assets/images/goods/6029346159.webp"
+                alt="land-rover"
+              />
+            </li>
+            <li class="goods__item">
+              <img
+                src="../assets/images/goods/6029346159.webp"
+                alt="land-rover"
+              />
+            </li>
+            <li class="goods__item">
+              <img
+                src="../assets/images/goods/6029346159.webp"
+                alt="land-rover"
+              />
+            </li>
+            <li class="goods__item">
+              <img
+                src="../assets/images/goods/6029346159.webp"
+                alt="land-rover"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<!-- eslint-enable -->
+
+<script>
+  export default {
+    data() {
+      return {
+        isVisibleButton: true,
+      };
+    },
+
+    head() {
+      return {
+        title: 'Payment Page - My awesome project',
+        script: [
+          {
+            hid: 'stripe',
+            src: 'https://embed.twitch.tv/embed/v1.js',
+            defer: true,
+          },
+        ],
+      };
+    },
+    methods: {
+      createBroadcast() {
+        this.testData = fetch(
+          `http://92.53.124.98:7007/api/stream/get_nickname`,
+        ).then((data) => {
+          const embed = new Twitch.Embed('twitch-embed', {
+            width: 1000,
+            height: 480,
+            channel: data,
+            layout: 'video-with-chat',
+            time: '12h4m45s',
+            autoplay: false,
+            parent: ['embed.example.com', 'othersite.example.com'],
+          });
+
+          embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+            const player = embed.getPlayer();
+          });
+
+          this.isVisibleButton = !this.isVisibleButton;
+        });
+      },
+    },
+  };
+</script>
+
+<style lang="less">
+  .main-page {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__title {
+      font-family: 'montserrat';
+      font-size: 45px;
+      letter-spacing: 0.2em;
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    &__create-broadcast {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 1);
+      margin-bottom: 30px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px 70px;
+      border-radius: 15px;
+      border: 1px solid rgba(0, 0, 0, 1);
+    }
+
+    &__stream {
+      width: 1000px;
+      height: 480px;
+      border-top: 1px solid rgba(0, 0, 0, 0.7);
+      margin-bottom: 50px;
+    }
+  }
+
+  .goods {
+    &__title {
+      font-family: 'montserrat';
+      text-align: center;
+      font-size: 35px;
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    &__item {
+      box-shadow: 5px 5px 5px -5px rgba(29, 89, 134, 0.6);
+
+      img {
+        width: 300px;
+      }
+    }
+  }
+
+  .scale-enter-active,
+  .scale-leave-active {
+    transition: all 0.5s ease;
+  }
+
+  .scale-enter-from,
+  .scale-leave-to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+</style>
