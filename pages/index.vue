@@ -93,27 +93,24 @@
         ],
       };
     },
+
     methods: {
       createBroadcast() {
-        this.testData = fetch(
-          `http://92.53.124.98:7007/api/stream/get_nickname`,
-        ).then((data) => {
-          const embed = new Twitch.Embed('twitch-embed', {
-            width: 1000,
-            height: 480,
-            channel: this.nameChannel,
-            layout: 'video-with-chat',
-            time: '12h4m45s',
-            autoplay: false,
-            parent: ['embed.example.com', 'othersite.example.com'],
-          });
-
-          embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
-            const player = embed.getPlayer();
-          });
-
-          this.isVisibleButton = !this.isVisibleButton;
+        const embed = new Twitch.Embed('twitch-embed', {
+          width: 1000,
+          height: 480,
+          channel: 'the_cattest',
+          layout: 'video-with-chat',
+          time: '12h4m45s',
+          autoplay: false,
+          parent: ['embed.example.com', 'othersite.example.com'],
         });
+
+        embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+          const player = embed.getPlayer();
+        });
+
+        this.isVisibleButton = !this.isVisibleButton;
       },
     },
   };
