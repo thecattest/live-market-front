@@ -1,0 +1,114 @@
+@import '../vars/_params.less';
+@import '../vars/_colors.less';
+@import '../vars/_screen.less';
+
+// titles
+
+
+
+.title-primary {
+  font-family: 'montserrat';
+  font-weight:  @weightSemiBold;
+  font-size: 42px;
+  line-height: 55px;
+  letter-spacing: -0.02em;
+}
+
+.title-secondary {
+  font-family: 'montserrat';
+  font-weight:  @weightSemiBold;
+  font-size: 32px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+}
+
+.subtitle-primary {
+  font-family: 'montserrat';
+  font-weight: @weightSemiBold;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle-secondary {
+  font-family: 'montserrat';
+  font-weight: @weightSemiBold;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.01em;
+}
+
+// text
+
+.content-primary {
+  font-family: 'opensans';
+  font-weight: @weightRegular;
+  font-size: 18px;
+  line-height: 30px;
+  color: @grey-strong-61;
+}
+
+.content-secondary {
+  font-family: 'opensans';
+  font-weight: @weightRegular;
+  font-size: 15px;
+  line-height: 25px;
+  color: @grey-strong-61;
+}
+
+.caption-primary {
+  font-family: 'opensans';
+  font-weight: @weightRegular;
+  font-size: 18px;
+  line-height: 25px;
+  color: @grey-very-dark-80;
+}
+
+.caption-secondary {
+  font-family: 'opensans';
+  font-weight: @weightRegular;
+  font-size: 15px;
+  line-height: 20px;
+  color: @grey-very-dark-80;
+}
+
+/* стили для мноточия '…' */
+.multyline-overflow-ellipsis {
+  /* спрятать текст если у более N строк */
+  overflow: hidden;
+  /* для установки '…' в абсолютную позицию */
+  position: relative;
+  /* используйте это значение для расчёта высоты блока */
+  line-height: 1.3em;
+  /* max-height = line-height (1.2) * число строк (3) */
+  max-height: 3.6em;
+  /* исправлиление проблемы когда последнее слово не соединяется с правой стороны */
+  text-align: justify;
+  /* место для многоточия '…' */
+  padding-right: 0.9em;
+}
+
+/* создаём многоточие … */
+.multyline-overflow-ellipsis:before {
+  /* многоточие в конце */
+  content: '…';
+  /* абсолютное позиционирование */
+  position: absolute;
+  /* установить позицию в правый нижний угол блока */
+  right: 2px;
+  bottom: 3px;
+}
+
+/* спрятать многоточие … если у нас есть текст, который меньше или равен количеству максимальный строк */
+.multyline-overflow-ellipsis:after {
+  content: '';
+  position: absolute;
+  /* установить позицию в правый нижний угол блока */
+  right: 0;
+  /* установить width и height */
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  /* цвет фона перед блоком */
+  background: white;
+}

@@ -1,0 +1,57 @@
+/**
+ * FONT PARAMS
+ */
+/**
+ * BASE HEIGHTS
+ */
+/**
+ * BASE PATHS
+ */
+/**
+ * BASE PROJECT COLORS PALETTE
+ */
+/**
+ * BASE SCREEN MEDIA BREAKPOINTS
+ */
+@font-face {
+  font-family: 'opensans';
+  font-weight: 400;
+  font-style: normal;
+  src: url('~assets/fonts/opensans/opensans-regular.woff2') format('woff2'), url('~assets/fonts/opensans/opensans-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'opensans';
+  font-weight: 600;
+  font-style: normal;
+  src: url('~assets/fonts/opensans/opensans-semibold.woff2') format('woff2'), url('~assets/fonts/opensans/opensans-semibold.woff') format('woff');
+}
+@font-face {
+  font-family: 'opensans';
+  font-weight: 700;
+  font-style: normal;
+  src: url('~assets/fonts/opensans/opensans-bold.woff2') format('woff2'), url('~assets/fonts/opensans/opensans-bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'montserrat';
+  font-weight: 500;
+  font-style: normal;
+  src: url('~assets/fonts/montserrat/montserrat-medium.woff2') format('woff2'), url('~assets/fonts/montserrat/montserrat-medium.woff') format('woff');
+}
+@font-face {
+  font-family: 'montserrat';
+  font-weight: 600;
+  font-style: italic;
+  src: url('~assets/fonts/montserrat/montserrat-semibolditalic.woff2') format('woff2'), url('~assets/fonts/montserrat/montserrat-semibolditalic.woff') format('woff');
+}
+@font-face {
+  font-family: 'montserrat';
+  font-weight: 600;
+  font-style: normal;
+  src: url('~assets/fonts/montserrat/montserrat-semibold.woff2') format('woff2'), url('~assets/fonts/montserrat/montserrat-semibold.woff') format('woff');
+}
+@font-face {
+  font-family: 'montserrat';
+  font-weight: 700;
+  font-style: normal;
+  src: url('~assets/fonts/montserrat/montserrat-bold.woff2') format('woff2'), url('~assets/fonts/montserrat/montserrat-bold.woff') format('woff');
+}

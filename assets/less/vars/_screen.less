@@ -1,0 +1,16 @@
+/**
+ * BASE SCREEN MEDIA BREAKPOINTS
+ */
+@screen-xs: 480px;
+@screen-sm: 768px;
+@screen-md: 992px;
+@screen-lg: 1200px;
+
+@screen-xs-max: (@screen-sm - 1px);
+@screen-sm-max: (@screen-md - 1px);
+@screen-md-max: (@screen-lg - 1px);
+
+@media-xs: ~'(max-width: @{screen-xs-max})';
+@media-sm: ~'(min-width: @{screen-sm}) and (max-width: @{screen-sm-max})';
+@media-md: ~'(min-width: @{screen-md}) and (max-width: @{screen-md-max})';
+@media-lg: ~'(min-width: @{screen-lg})';
